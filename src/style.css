@@ -1,0 +1,64 @@
+.squish {
+  width: 100px;
+  height: 100%;
+}
+
+.squash {
+  height: 10px;
+  width: 100%;
+}
+
+.shrink {
+  width: 100px;
+  height: 50%;
+}
+
+.grow {
+  width: 200%;
+  height: 300px;
+}
+
+.flip {
+  transform: scaleX(-1);
+}
+
+.diffColor {
+  background-color: black;
+}
+
+.pinkBG {
+  background-color: pink;
+}
+
+.blueBG {
+  background-color: blue;
+}
+
+.purpleBG {
+  background-color: purple;
+}
+
+.fade {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  animation-name: fade;
+  animation-duration: 4s;
+  animation-delay: 2s;
+}
+
+@keyframes fade {
+  0% {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    background-color: black;
+  }
+}
+
+.flip {
+  transform: rotate(180deg);
+}

@@ -2,55 +2,88 @@ import "./less/index.less";
 
 // Your code goes here!
 const page = document.querySelector("body");
+const header = document.querySelector("header");
 const heading = document.querySelector(".logo-heading");
-const navLinks = document.querySelectorAll(".nav-links");
+const navLinks = document.querySelectorAll(".nav-link");
 const mainImg = document.querySelector(".intro img");
-const midImages = document.querySelectorAll(".img-content img");
+const midImage1 = document.querySelector(".img1");
+const midImage2 = document.querySelector(".img2");
+const input = document.querySelector("textarea");
 const bottomImg = document.querySelector(".content-destination img");
-const buttons = document.querySelectorAll(".btn");
-const footer = document.querySelector(".footer");
+// const buttons = document.querySelector(".btn");
+// const btn1 = document.querySelector(".btn1");
+// const btn2 = document.querySelector(".btn2");
+// const btn3 = document.querySelector(".btn3");
 
-const spin = function (e) {
-  heading.classList.add(".spin");
-};
-heading.addEventListener("mouseover", spin);
+const para = document.querySelector(".text-content p");
+const para2 = document.querySelector(".content-destination p");
+const footer = document.querySelector("footer");
 
-const grow = function (e) {
-  navLinks.classList.add(".grow");
-};
-navLinks.addEventListener("select", grow);
-
-const fade = function (e) {
-  page.classList.add(".fade");
-};
-page.addEventListener("load", fade);
-
+// Doubleclick
 const squish = function (e) {
-  mainImg.classList.add(".squish");
+  e.target.classList.toggle("squish");
 };
 mainImg.addEventListener("dblclick", squish);
 
+// Mouseover
+const flip = function (e) {
+  e.target.classList.toggle("flip");
+};
+bottomImg.addEventListener("mouseover", flip);
+
+// Keydown
 const changeColor = function (e) {
-  buttons.classList.add("diffColor");
+  e.preventDefault();
+  if (e.key === "Enter") {
+    midImage1.classList.toggle("flip");
+    midImage2.classList.toggle("flip");
+    console.log("hi");
+  }
 };
-buttons.addEventListener("keydown", changeColor);
+window.addEventListener("keydown", changeColor);
 
+// Load
+const fade = function (e) {
+  //   page.classList.toggle("fade");
+  // e.target.classList.toggle("fade");
+  alert("hello world?");
+};
+window.addEventListener("load", fade);
+
+// Select
 const shrink = function (e) {
-  footer.classList.add(".shrink");
+  //   navLinks.target.style.backgroundColor = "blue";
+  heading.classList.add("pinkBG");
+  console.log("test");
 };
-footer.addEventListener("resize", shrink);
+document.addEventListener("select", shrink);
 
-const squash = function (e) {
-  midImages.classList.add(".squish");
-};
-midImages.addEventListener("focus", squash);
-
+// Scroll
 const backGround = function (e) {
-  body.classList.add(".bgColor");
+  page.classList.toggle("pinkBG");
 };
-body.addEventListener("scroll", backGround);
+document.addEventListener("scroll", backGround);
 
-const dragDrop = function (e) {
-  bottomImg.classList.add("drag-drop");
+// Resize
+const blueBG = function (e) {
+  para.classList.toggle("blueBG");
+  console.log("another test");
 };
-bottomImg.addEventListener("drag/drop", dragDrop);
+window.addEventListener("resize", blueBG);
+
+//Mouseout
+const mouse = function (e) {
+  footer.classList.toggle("diffColor");
+  e.target.classList.toggle("diffColor");
+  console.log("WHYYY");
+};
+footer.addEventListener("mouseout", mouse);
+
+// Copy
+document.addEventListener("copy", (e) => {
+  para2.style.backgroundColor = "purple";
+});
+
+document.addEventListener("pointerleave", () => {
+  header.style.backgroundColor = "orange";
+});
